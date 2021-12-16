@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps/Useful_string_methods -->
+<body>
+    <!-- 문자열 연습 -->
+    <div class="output">
+        <ul></ul>
+    </div>
+    <script>
+        var list = document.querySelector('.output ul');
+            list.innerHTML = '';
+        var greetings = ['Happy Birthday!',
+                 'Merry Christmas my love',
+                 'A happy Christmas to all the family',
+                 'You\'re all I want for Christmas',
+                 'Get well soon'];
+
+        for (var i = 0; i < greetings.length; i++) {
+            var input = greetings[i];
+            // Your conditional test needs to go inside the parentheses
+            // in the line below, replacing what's currently there
+            if (greetings[i].indexOf("Christmas") !== -1) {
+                var result = input;
+                var listItem = document.createElement('li');
+                listItem.textContent = result;
+                list.appendChild(listItem);
+            }
+        }
+        
+
+
+    </script>
+</body>
+</html>
