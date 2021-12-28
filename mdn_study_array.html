@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps/Arrays -->
+    <div class="output">
+        <p></p>
+        <ul></ul>
+    </div>
     <script>
         var shopping = ['bread', 'milk', 'cheese', 'hummus', 'noodles'];
         shopping[0] = 'tahini';
@@ -42,7 +47,41 @@
         console.log(myArray);
         myArray.push("Bradford", 'brighton');
         console.log(myArray);
+
+        var newLength = myArray.push("Bristol");
+        console.log(myArray);
+        console.log(newLength);
+       
+        //배열의 마지막원소 제거
+        var removeItem = myArray.pop();
+        console.log(myArray);
+        console.log(removeItem);
         
+        /* ==================== */
+
+        var list = document.querySelector('.output ul');
+        var totalBox = document.querySelector('.output p');
+        var total = 0;
+        list.innerHTML = '';
+        totalBox.textContent = '';
+        // number 1
+        var products = ['Underpants:6.99', 'Socks:5.99', 'T-shirt:14.99', 'Trousers:31.99', 'Shoes:23.99'];
+                        
+
+        for (var i = 0; i <= products.length; i++) { // number 2
+            var subArray = products[i].split(':');
+            var name = subArray[0];
+            var price = Number(subArray[1]);
+            total += price;
+            itemText = name + ' — $' + price;
+            var listItem = document.createElement('li');
+            listItem.textContent = itemText;
+            list.appendChild(listItem);
+        }
+
+        totalBox.textContent = 'Total: $' + total.toFixed(2);
+
+
     </script>
 </body>
 </html>
