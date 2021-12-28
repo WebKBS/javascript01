@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 0em;
+            padding: 2em;
+        }
+
+        #source {
+            color: blue;
+            border: 1px solid black;
+        }
+        #target {
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <p id="p1" draggable="true">
+        <!-- SSSSSSSSSSSARRRRRRRRRT -->
+        <img src="plusimg.jpg" alt="" style="width: 300px; height: 100px;">
+    </p>
+    <div>
+        <p id="source" ondragstart="dragstart_handler(event);" draggable="true">
+          Select this element, drag it to the Drop Zone and then release the selection to move the element.
+        </p>
+    </div>
+    <div id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">Drop Zone</div>
+    <script>
+        // function dragstart_handler(ev) {
+        //     console.log("dragStart");
+        //     // 데이터 전달 객체에 대상 요소의 id를 추가합니다.
+        //     ev.dataTransfer.setData("text/plain", ev.target.id);
+        //     ev.dataTransfer.setData("text/html", "<p>Example paragraph</p>");
+        //     ev.dataTransfer.setData("text/uri-list", "http://developer.mozilla.org");
+        // }
+
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // id를 통해 element를 가져옵니다.
+            const element = document.getElementById("p1");
+            // 'dragstart' 이벤트 리스터를 추가합니다.
+            element.addEventListener("dragstart", dragstart_handler);
+
+     
+        });
+
+
+        function dragstart_handler(ev) {
+            // 드래그 이미지로 사용할 이미지를 만듭니다.
+            // 참고: "example.gif"를 존재하는 이미지로 바꾸지 않으면 기본 드래그 이미지를 사용합니다.
+            var img = new Image();
+            img.src = 'plusimg.jpg';
+            ev.dataTransfer.setDragImage(img, 10, 10);
+        }
+
+
+        function dragstart_handler(ev) {
+            console.log("dragStart: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+
+            // Add this element's id to the drag payload so the drop handler will
+            // know which element to add to its tree
+            ev.dataTransfer.setData("text", ev.target.id);
+            ev.dataTransfer.effectAllowed = "move";
+        }
+
+        function drop_handler(ev) {
+            console.log("drop: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+            ev.preventDefault();
+
+            // Get the id of the target and add the moved element to the target's DOM
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+        function dragover_handler(ev) {
+            console.log("dragOver: dropEffect = " + ev.dataTransfer.dropEffect + " ; effectAllowed = " + ev.dataTransfer.effectAllowed);
+            ev.preventDefault();
+            // Set the dropEffect to move
+            ev.dataTransfer.dropEffect = "move"
+        }
+
+        
+    </script>
+</body>
+</html>

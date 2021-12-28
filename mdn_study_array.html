@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var shopping = ['bread', 'milk', 'cheese', 'hummus', 'noodles'];
+        shopping[0] = 'tahini';
+
+        var sequence = [1, 1, 2, 3, 5, 8, 13];
+        var random = ['tree', 795, [0, 1, 2]];
+        // console.log(random[2][2]); // 배열 내부의 배열 = 다중배열
+
+        // console.log(sequence.length);
+        
+        for(let i = 0; i < sequence.length; i++){
+            console.log(sequence[i]);
+        }
+
+        var myData = 'Manchester,London,Liverpool,Birmingham,Leeds,Carlisle';
+        var myArray = myData.split(','); //split == 원하는 매개변수로 문자열을 분리하여 배열로 표현
+        // console.log(myArray);
+
+        // console.log(myArray.length)
+        // console.log(myArray[0]);
+        // console.log(myArray[1]);
+
+        var myNewString = myArray.join(","); // join == 배열에 문자(인자)를 추가하고 문자로 만듦
+        // console.log(myNewString);
+
+        var dogNames = ['Rocket', 'Flash', 'Bella', 'Slugger'];
+        // console.log(dogNames.toString()); // toString 메서드는 항상 "," 가 붙음.
+
+        var splitDogNames = dogNames.join(',');
+        // console.log(splitDogNames)
+
+        myArray.push("Cardiff");
+        console.log(myArray);
+        myArray.push("Bradford", 'brighton');
+        console.log(myArray);
+        
+    </script>
+</body>
+</html>
