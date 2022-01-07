@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+	    <title>Page Title</title>
+        <style>
+            body{width: 500px; height: 500px; background: url(scene-with-mine-entrance-and-tree-illustration_1308-1043.jpg) no-repeat 0 0/ contain; position: relative;}
+            #score{background: #ff0; width: 50px; padding :20px; border-radius: 300px; border: 3px solid #fff; display: block; text-align: center; font-size: 30px; position: absolute; top: 10px; right: 20px; text-align: center;}
+            #demo{width: 100px; height: 100px; background: url(png-clipart-rock-drawing-rock-cdr-white.png) no-repeat center center /contain; border: none; cursor: pointer; position: absolute; top: 300px; left: 200px; z-index: 2;}
+            .pe{width: 256px; height: 100px; position: absolute;top: 300px; left: 50px;}
+            .pe img{width: 100%; height: auto;}
+            #timer{color: #fff; font-size: 20px;}
+        </style>
+     <script>
+        var click=0; 
+        var outOfTime = false;
+        function hi(){
+
+            if(!outOfTime){
+            click+=1; 
+            document.getElementById("score").innerHTML = click;
+            }
+        }
+        
+        var time = 60; //time in seconds
+        var timer = setInterval(function(){
+            time--;
+            document.getElementById("timer").innerHTML = time + "s";
+            if(time==0){
+            clearInterval(timer);
+            document.getElementById("timer").innerHTML = "Time's up!";
+            outOfTime = true;
+            }
+        }, 1000);
+
+
+      </script>
+	</head>
+	<body>
+        <span id="timer"></span>
+        <span id="score">0</span><br/>
+        <button onclick="hi()" id="demo"> </button>
+        <span class="pe">
+            <img src="png-transparent-actor-graphy-actor.png" alt="">
+        </span>
+	</body>
+</html>
