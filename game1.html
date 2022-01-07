@@ -3,12 +3,17 @@
     <head>
 	    <title>Page Title</title>
         <style>
+            ul, li{list-style: none;}
             body{width: 500px; height: 500px; background: url(scene-with-mine-entrance-and-tree-illustration_1308-1043.jpg) no-repeat 0 0/ contain; position: relative;}
-            #score{background: #ff0; width: 50px; padding :20px; border-radius: 300px; border: 3px solid #fff; display: block; text-align: center; font-size: 30px; position: absolute; top: 10px; right: 20px; text-align: center;}
+            #score{background: #ff0; width: 130px; height: 30px; line-height: 30px; border-radius: 100px; border: 3px solid #fff; display: block; text-align: right; font-size: 30px; position: absolute; top: 20px; right: 70px; text-align: center;}
             #demo{width: 100px; height: 100px; background: url(png-clipart-rock-drawing-rock-cdr-white.png) no-repeat center center /contain; border: none; cursor: pointer; position: absolute; top: 300px; left: 200px; z-index: 2;}
             .pe{width: 256px; height: 100px; position: absolute;top: 300px; left: 50px;}
             .pe img{width: 100%; height: auto;}
             #timer{color: #fff; font-size: 20px;}
+
+            .setting a{display: block; width: 50px; height: 50px; background: url(../javascript01/images/setting.png) no-repeat 0 0 / contain; background-color: #fff; border-radius: 50%; position: absolute; top: 10px; right: 0px;}
+
+
         </style>
      <script>
         var click=0; 
@@ -36,6 +41,18 @@
       </script>
 	</head>
 	<body>
+        <div id="wrap">
+            <header id="header">
+                <nav class="gnb">
+                    <ul>
+                        <li class="setting">
+                            <a href="#"></a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
         <span id="timer"></span>
         <span id="score">0</span><br/>
         <button onclick="hi()" id="demo"> </button>
