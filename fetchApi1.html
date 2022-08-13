@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="fetch" />
+  </body>
+
+  <script>
+    const a = document.querySelector("input");
+    document.querySelector("input").addEventListener("click", function () {
+      function callback() {
+        console.log("response end");
+      }
+
+      fetch("https://mintway.io").then((response) => {
+        response.json().then(function (text) {
+          document.body.innerHTML = text;
+        });
+        // console.log(response.status);
+        // if (response.status !== 200) {
+        //   alert("200");
+        // }
+      });
+    });
+  </script>
+</html>
